@@ -34,9 +34,88 @@ public class CleverRobot extends IRobotAdapter {
 	}
 
 	private boolean loop() throws Exception {
+		driveDirect(100, 100);
+		readSensors(100);
+		int[]lightSensor = getLightBumps();
+		if(lightSensor[0]>1000){
+			driveDirect(100, -100);
+			Thread.sleep(500);
+			driveDirect(100, 100);
+			Thread.sleep(300);
+			driveDirect(-100, 100);
+			Thread.sleep(200);
+		}
+		if(lightSensor[1]>1000){
+			driveDirect(100, -100);
+			Thread.sleep(500);
+			driveDirect(100, 100);
+			Thread.sleep(300);
+			driveDirect(-100, 100);
+			Thread.sleep(200);
+		}
+		if(lightSensor[2]>1000){
+			driveDirect(100, -100);
+			Thread.sleep(500);
+			driveDirect(100, 100);
+			Thread.sleep(300);
+			driveDirect(-100, 100);
+			Thread.sleep(500);
+		}
+		if(lightSensor[3]>1000){
+			driveDirect(-100, 100);
+			Thread.sleep(500);
+			driveDirect(100, 100);
+			Thread.sleep(300);
+			driveDirect(100, -100);
+			Thread.sleep(200);
+		}
+		if(lightSensor[4]>1000){
+			driveDirect(100, -100);
+			Thread.sleep(500);
+			driveDirect(100, 100);
+			Thread.sleep(300);
+			driveDirect(-100, 100);
+			Thread.sleep(200);
+		}
+		if(lightSensor[5]>1000){
+			driveDirect(100, -100);
+			Thread.sleep(500);
+			driveDirect(100, 100);
+			Thread.sleep(300);
+			driveDirect(-100, 100);
+			Thread.sleep(200);
+		}
+		
+		
+		
+		
+		
+		/*if(isBumpLeft()){
+			driveDirect(-100, -100);
+			Thread.sleep(75);
+			driveDirect(-100, 100);
+			Thread.sleep(100);
+			driveDirect(100, 100);
+		} else if(isBumpRight()){
+			driveDirect(-100, -100);
+			Thread.sleep(75);
+			driveDirect(100, -100);
+			Thread.sleep(100);
+			driveDirect(100, 100);
+		} else if(isBumpRight() && isBumpLeft()){
+			driveDirect(-100, -100);
+			Thread.sleep(100);
+			driveDirect(100, -100);
+			Thread.sleep(100);
+			driveDirect(100, 100);
+		}
+		*/
+		
+		
+		
 		System.out.println("LEFT SONAR: " + sonar.readSonar("left"));
-		Thread.sleep(1000);
-		setTailLight(tailLight = !tailLight);
+		//Thread.sleep(1000);
+		//setTailLight(tailLight = !tailLight);
 		System.out.println("RIGHT SONAR: " + sonar.readSonar("right"));
 		System.out.println("CENTER SONAR: " + sonar.readSonar("center"));
 
